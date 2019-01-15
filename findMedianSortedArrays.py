@@ -7,6 +7,7 @@ class Solution(object):
         print(half)
         print(nums1[half])
         print(nums1[~half])
+        print(nums1[half] + nums1[~half])
         return (nums1[half] + nums1[~half]) / 2
 
     def findMedianSortedArrays2(self, A, B):
@@ -53,7 +54,7 @@ class Solution(object):
 # A1=[2,3,4,5]
 # A2=[4,5,6,7]
 A1=[1,2]
-A2=[4,5,6,7]
+A2=[3,4]
 s = Solution()
 print(s.findMedianSortedArrays(A1,A2))
 print(s.findMedianSortedArrays2(A1,A2))
