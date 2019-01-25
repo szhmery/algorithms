@@ -70,38 +70,3 @@ print(myList.find(5))
 print(myList.find(8))
 print(myList.find(12))
 
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        list1 = [str(i) for i in my_generator(l1)]
-        list2 = [str(i) for i in my_generator(l2)]
-        return list(map(int, str(int("".join(list1[::-1]))  + int("".join(list2[::-1])))[::-1]))
-
-def my_generator(LinkedList):
-    generator_list = LinkedList
-    while generator_list:
-        yield generator_list.data
-        generator_list = generator_list.next
-
-l1 = LinkedList()
-l1.add(2)
-l1.add(4)
-l1.add(3)
-
-l2 = LinkedList()
-l2.add(5)
-l2.add(6)
-l2.add(4)
-
-s = Solution()
-s.addTwoNumbers(l1,l2)
