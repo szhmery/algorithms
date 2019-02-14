@@ -5,7 +5,36 @@ class ListNode:
         self.next = None
 
 class Solution:
-    def mergeTwoLists(self, l1, l2):
+    def mergeTwoLists(self, l1: 'ListNode', l2: 'ListNode') -> 'ListNode':
+        if not l1:
+            return l2
+        if not l2:
+            return l1
+        if l1.val <= l2.val:
+            l3_head = l1
+            l3 = l1
+            l1 = l1.next
+        else:
+            l3_head = l2
+            l3 = l2
+            l2 = l2.next
+
+        while l1 and l2:
+            if l1.val <= l2.val:
+                l3.next = l1
+                l3 = l1
+                l1 = l1.next
+            else:
+                l3.next = l2
+                l3 = l2
+                l2 = l2.next
+        if l1:
+            l3.next = l1
+        if l2:
+            l3.next = l2
+        return l3_head
+
+    def mergeTwoLists2(self, l1, l2):
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -13,6 +42,11 @@ class Solution:
         """
         l2_head = l2    # 用l2_head保存l2的头部
         l1_head = l1    # 用l1_head保存l1的头部
+        if l1 == None:
+            return l2
+        if l2 == None:
+            return l1
+
         while l2_head != None and l1.next != None: # 如果此时l2头部的数在l1和l1.next之间则插入到两者之间
             if l1.val <= l2_head.val and l1.next.val >= l2_head.val:
                 l2 = l2.next
@@ -32,10 +66,22 @@ class Solution:
                 l1 = l1.next
                 continue
 
+        while l2_head != None and l1.next == None:
+            if l1.val <= l2_head.val:
+                l1.next = l2_head
+                return l1_head
+            else:
+                l2 = l2.next
+                l2_head.next = l1
+
+                if l1_head == l1:
+                    l1_head = l2_head
+                    l2_head = l2
+                else:
+                    l1 = l2_head
+                    l2_head = l2
+            continue
         if l2_head == None:
-            return l1_head
-        if l1.next == None:
-            l1.next = l2_head
             return l1_head
 
 # l1=[1,2,4]
@@ -123,6 +169,37 @@ s = Solution()
 
 l3 = s.mergeTwoLists(l1,l2)
 print("Test case 5:")
+while l3 != None:
+    print(l3.val)
+    l3 = l3.next
+
+# l1=[2]
+# l2=[1]
+l1 = ListNode(2)  #节点2 做头
+
+l2 = ListNode(1)
+
+s = Solution()
+
+l3 = s.mergeTwoLists(l1,l2)
+print("Test case 6:")
+while l3 != None:
+    print(l3.val)
+    l3 = l3.next
+
+# l1=[5]
+# l2=[1,2,4]
+l1 = ListNode(5)  #节点2 做头
+
+l2 = ListNode(1)
+l2_2 = ListNode(2)
+l2.next = l2_2
+l2_2.next = ListNode(4) #节点3,放在4的后面
+
+s = Solution()
+
+l3 = s.mergeTwoLists(l1,l2)
+print("Test case 7:")
 while l3 != None:
     print(l3.val)
     l3 = l3.next
