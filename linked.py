@@ -52,10 +52,46 @@ class LinkedList:
                 this_node = this_node.get_next()
         return None
 
+    def reserve(self):
+        if self.head == None:
+            return None
+
+        nodeResult = None
+
+        nodePre = None
+        current = self.head
+
+        while current != None:
+            nodeNext = current.next
+
+            if nodeNext == None:
+                nodeResult = current
+
+            current.next = nodePre
+            nodePre = current
+            current = nodeNext
+
+        return nodeResult
+
+    def printlist(self):
+        current = self.head
+        while current != None:
+            print(current.data)
+            current = current.next
+
 myList = LinkedList()
+
 myList.add(5)
 myList.add(8)
 myList.add(12)
+print("Before reverse:")
+myList.printlist()
+NewNode = myList.reserve()
+print("After reverse:")
+while NewNode != None:
+    print(NewNode.data)
+    NewNode = NewNode.next
+
 print(myList.find(5))
 print(myList.find(8))
 print(myList.find(12))
