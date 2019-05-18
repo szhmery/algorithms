@@ -8,7 +8,7 @@ def ShellSort(list):
         for i in range(gap,Length,1):
             j = i
             current = list[i]
-            while j - gap >= 0 and current < list[j-gap]:
+            while j - gap >= 0 and current < list[j-gap]: # while make sure all of previous j-gap data is less than current
                 list[j] = list[j-gap]
                 j = j - gap
             list[j] = current

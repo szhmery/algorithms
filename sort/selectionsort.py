@@ -6,7 +6,7 @@ def SelectionSort(list):
         minIndex = i
         for j in range(i+1, Length, 1):
             if list[j] < list[minIndex]:
-                minIndex = j
+                minIndex = j # find the least of data from the left data
         temp = list[i]
         list[i] = list[minIndex]
         list[minIndex] = temp

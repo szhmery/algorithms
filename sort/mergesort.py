@@ -14,7 +14,7 @@ def merge(left, right):
     result = []
     while left and left.__len__() > 0 and right and right.__len__() > 0:
         if left[0] <= right[0]:
-            result.append(left.pop(0))
+            result.append(left.pop(0)) # pop is shift in C
         else:
             result.append(right.pop(0))
     while left and left.__len__():
