@@ -28,7 +28,7 @@ class Solution():
         else:
             return False
 
-    def longestPalindrome(self,s):
+    def longestPalindrome2(self,s):
 
         """
         :type s: str
@@ -42,7 +42,7 @@ class Solution():
             j = i + 1
             # While j is less than length of string
             # AND res is *not* longer than substring s[i:]
-            while j <= len(s) and len(res) <= len(s[i:]):
+            while j <= len(s) and len(res) <= len(s[i:]): #效率更高一些。剩下的字符串短于目前获得的字符串的话就不用继续了
                 # If substring s[i:j] is a palindrome
                 # AND substring is longer than res
                 if s[i:j] == s[i:j][::-1] and len(s[i:j]) > len(res):
