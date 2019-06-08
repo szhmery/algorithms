@@ -1,4 +1,4 @@
-
+import math
 def isPrime(n,a):
     if n<2:
         return False
@@ -14,6 +14,8 @@ while 1:
     if isPrime(i,2):
         list.append(i)
     i+=1
-    if list.__len__() == 100:
+    if list.__len__() == 120:
         break
 print(list)
+
+print(math.pow(4,3))
