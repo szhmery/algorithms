@@ -4,7 +4,8 @@
 
 #给出一个数,如果是fibonacci数列就把之前数列都打印出来。如果不是则throw一个错误
 class ThorwErr(Exception):
-    print("The number is not in fibonacci sequence!")
+    def __init__(self):
+        print("The number is not in fibonacci sequence!")
 
 
 
