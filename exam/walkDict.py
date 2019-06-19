@@ -10,6 +10,7 @@ class Vividict(dict):
                     yield (key,) + tup
             else:
                 yield key, value
+    #my solution
     def walkDict(self, dicts):
         for key, dict in dicts.items():
             if type(dict).__name__ == 'dict':
