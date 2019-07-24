@@ -1,5 +1,6 @@
 #https://leetcode.com/problems/generate-parentheses/
 #22. Generate Parentheses
+#analysis:https://blog.csdn.net/kenden23/article/details/16951299
 class Solution:
     def generateParenthesis(self, n):
         result = []
