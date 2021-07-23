@@ -57,7 +57,7 @@ class Tree(object):
         self.later_digui(root.lchild)
         self.later_digui(root.rchild)
         print(root.elem, end=' ')
-
+    # better format
     def front_stack(self, root):
         """利用堆栈实现树的先序遍历"""
         if root == None:
@@ -76,17 +76,28 @@ class Tree(object):
         """利用堆栈实现树的先序遍历"""
         if root is None:
             return
-
         myStack = []
-        myStack.append(root)
-        while myStack:
-            root = myStack.pop()
-            print(root.elem, end=' ')
-            if root.rchild:  # 从根节点开始，一直存右子树
-                myStack.append(root.rchild)
-            if root.lchild:
-                myStack.append(root.lchild)  # 然后存左子树
+        node = root
+        while myStack or node:
+            if node:
+                print(node.elem, end=' ')
+                myStack.append(node)
+                node = node.lchild
+            else:
+                node = myStack.pop()
+                node = node.rchild
 
+        # myStack = []
+        # myStack.append(root)
+        # while myStack:
+        #     root = myStack.pop()
+        #     print(root.elem, end=' ')
+        #     if root.rchild:  # 从根节点开始，一直存右子树
+        #         myStack.append(root.rchild)
+        #     if root.lchild:
+        #         myStack.append(root.lchild)  # 然后存左子树
+
+    # better format
     def middle_stack(self, root):
         """利用堆栈实现树的中序遍历"""
         if root is None:
@@ -132,6 +143,19 @@ class Tree(object):
             myStack2.append(node)
         while myStack2:  # 将myStack2中的元素出栈，即为后序遍历次序
             print(myStack2.pop().elem, end=' ')
+
+    def postorder_stack(self, root):
+        if not root:
+            return
+        stack, res, node = [], [], root
+        while stack or node:
+            while node:
+                stack.append(node)
+                res.append(node.elem)# Reverse the process of preorder
+                node = node.rchild # // Reverse the process of preorder
+            node = stack.pop()
+            node = node.lchild # // Reverse the process of preorder
+        print(res[::-1])
 
     def level_queue(self, root):
         """利用队列实现树的层次遍历"""
@@ -264,6 +288,8 @@ if __name__ == '__main__':
     tree.inOrder_stack(tree.root)
     print('\n堆栈实现后序遍历:')
     tree.later_stack(tree.root)
+    print('\n堆栈实现后序遍历2:')
+    tree.postorder_stack(tree.root)
     print('\n堆栈深度:')
     print(tree.treeDepth(tree.root))
     print('\n堆栈宽度:')

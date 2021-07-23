@@ -19,7 +19,7 @@ def heapSort(arr):
     n = len(arr)
 
     # Build a maxheap.
-    for i in range(n, -1, -1):
+    for i in range(n // 2, -1, -1):
         heapify(arr, n, i)
 
     # 一个个交换元素
@@ -51,7 +51,7 @@ def max_heapify(heap, heapSize, root):  # 调整列表中的元素并保证以ro
 def build_max_heap(heap):  # 构造一个堆，将堆中所有数据重新排序
     heapSize = len(heap)
     for i in range((heapSize - 2) // 2, -1, -1):  # 自底向上建堆
-        max_heapify(heap, heapSize, i)
+       max_heapify(heap, heapSize, i)
 
 
 def heap_sort(heap):  # 将根节点取出与最后一位做对调，对前面len-1个节点继续进行堆调整过程。
@@ -66,6 +66,6 @@ if __name__ == '__main__':
     array = [12, 11, 13, 5, 6, 7]
     heapSort(array)
     print(array)
-    array = [12, 11, 13, 5, 6, 7]
+    array = [1,2,3,4,5,6]
     heap_sort(array)
     print(array)
