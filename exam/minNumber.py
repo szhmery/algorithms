@@ -1,6 +1,6 @@
 from typing import List
 import functools
-
+#https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/solution/mian-shi-ti-45-ba-shu-zu-pai-cheng-zui-xiao-de-s-4/
 def minNumber(nums:List)->str:
     def sort_rule(x, y):
         a, b = x + y, y + x
