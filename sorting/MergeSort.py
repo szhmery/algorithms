@@ -77,5 +77,5 @@ if __name__ == '__main__':
     print(array)
 
     array = [3, 5, 6, 1]
-    mergeSort4(array)
+    mergeSort(array)
     print(array)

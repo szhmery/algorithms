@@ -1,3 +1,4 @@
+# 装饰器实现单例模式， 利用字典
 def Singleton(cls):
     _instance = {}
 

@@ -1,3 +1,4 @@
+# https://www.bilibili.com/video/BV1RK4y1d7ct?p=1
 # Dijkstra算法——通过边实现松弛
 # 指定一个点到其他各顶点的路径——单源最短路径
 
@@ -34,7 +35,8 @@ def Dijkstra(G, v0, INF=999):
 
         new = INF  # 从剩下的未确定点中选择最小距离点作为新的扩散点
         for v in dis.keys():
-            if v in book: continue
+            if v in book:
+                continue
             if dis[v] < new:
                 new = dis[v]
                 minv = v
